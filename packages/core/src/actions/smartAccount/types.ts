@@ -1,4 +1,15 @@
+<<<<<<< Updated upstream
 import type { Hex, RpcTransactionRequest } from "viem";
+=======
+import type {
+  Chain,
+  DeriveChain,
+  FormattedTransactionRequest,
+  Hex,
+  RpcTransactionRequest,
+} from "viem";
+import type { UnionOmit } from "viem/_types/types/utils";
+>>>>>>> Stashed changes
 import type {
   GetAccountParameter,
   SmartContractAccount,
@@ -26,6 +37,37 @@ export type SendUserOperationParameters<
   overrides?: UserOperationOverrides;
 } & GetAccountParameter<TAccount>;
 
+<<<<<<< Updated upstream
+=======
+export type SignUserOperationParameters<
+  TAccount extends SmartContractAccount | undefined
+> = {
+  uoStruct: UserOperationStruct;
+} & GetAccountParameter<TAccount>;
+
+export type SendRawUserOperationParameters<
+  TAccount extends SmartContractAccount | undefined
+> = {
+  request: UserOperationRequest;
+} & GetAccountParameter<TAccount>;
+
+export type SendUserOperationFromTxParameters<
+  TChain extends Chain | undefined = Chain | undefined,
+  TAccount extends SmartContractAccount | undefined =
+    | SmartContractAccount
+    | undefined,
+  TChainOverride extends Chain | undefined = Chain | undefined,
+  ///
+  derivedChain extends Chain | undefined = DeriveChain<TChain, TChainOverride>
+> = {
+  request:
+    | UnionOmit<FormattedTransactionRequest<derivedChain>, "from">
+    | UnionOmit<FormattedTransactionRequest<derivedChain>, "from">[];
+  overrides?: UserOperationOverrides;
+} & GetAccountParameter<TAccount>;
+
+/** @deprecated use SendUserOperationFromTxParameters instead */
+>>>>>>> Stashed changes
 export type SendTransactionsParameters<
   TAccount extends SmartContractAccount | undefined
 > = {

@@ -53,8 +53,15 @@ export type BaseSmartAccountClientActions<
   buildUserOperation: (
     args: SendUserOperationParameters<TAccount>
   ) => Promise<UserOperationStruct>;
+<<<<<<< Updated upstream
   buildUserOperationFromTx: (
     args: SendTransactionParameters<TChain, TAccount>
+=======
+  buildUserOperationFromTx: <
+    TChainOverride extends Chain | undefined = undefined
+  >(
+    args: SendUserOperationFromTxParameters<TChain, TAccount, TChainOverride>
+>>>>>>> Stashed changes
   ) => Promise<UserOperationStruct>;
   buildUserOperationFromTxs: (
     args: SendTransactionsParameters<TAccount>
@@ -68,6 +75,12 @@ export type BaseSmartAccountClientActions<
   sendTransaction: <TChainOverride extends Chain | undefined = undefined>(
     args: SendTransactionParameters<TChain, TAccount, TChainOverride>
   ) => Promise<Hex>;
+  sendUserOperationTransaction: <
+    TChainOverride extends Chain | undefined = undefined
+  >(
+    args: SendUserOperationFromTxParameters<TChain, TAccount, TChainOverride>
+  ) => Promise<Hex>;
+  /** @deprecated use SendUserOperationFromTxParameters instead */
   sendTransactions: (
     args: SendTransactionsParameters<TAccount>
   ) => Promise<Hex>;

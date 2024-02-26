@@ -11,6 +11,10 @@ import type {
   SendTransactionsParameters,
 } from "./types";
 
+<<<<<<< Updated upstream
+=======
+/** @deprecated use buildUserOperationTransaction instead */
+>>>>>>> Stashed changes
 export const buildUserOperationFromTxs: <
   TTransport extends Transport = Transport,
   TChain extends Chain | undefined = Chain | undefined,
